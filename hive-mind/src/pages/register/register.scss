@@ -1,0 +1,79 @@
+.register{
+    height: 100vh;
+    background-color:#019187;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+        .card{
+            width: 70%;
+            display: flex;
+            flex-direction: row-reverse;
+            background-color: white;
+            border-radius: 10px;
+            min-height: 600px;
+            .left{
+                flex: 1;
+                background:linear-gradient(rgba(230, 230, 126, 0.5),rgba(160, 156, 156, 0.5)), url("https://images.pexels.com/photos/7441442/pexels-photo-7441442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") center;
+                background-size: cover;
+                padding: 50px;
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                color: rgb(34, 34, 14);
+                h1{
+                    font-size: 75px;
+                    line-height: 100px;
+                    padding-top: 50px;
+                }
+                
+                span{
+                    font-size: 14px;
+                }
+                button{
+                    width: 50%;
+                    padding: 10px;
+                    border: none;
+                    background-color: rgb(235, 238, 70);
+                    color: rgb(15, 15, 9);
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+    
+            .right{
+                flex: 1;
+                padding: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items:flex-start ;
+                img{
+                    height: 80px;
+                    width: 200px;
+                }
+                h1{
+                    color: rgb(3, 3, 3);
+                }
+                form{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    input{
+                        border: none;
+                        border-bottom: 1px solid lightyellow;
+                        padding: 20px 10px;
+                    }
+                    button{
+                        width: 50%;
+                        padding: 10px;
+                        border: none;
+                        background-color: rgb(235, 238, 70);
+                        color: rgb(15, 15, 9);
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
