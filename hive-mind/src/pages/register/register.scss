@@ -6,21 +6,23 @@
     justify-content: center;
     overflow: hidden;
         .card{
+            height: 90%;
             width: 70%;
             display: flex;
             flex-direction: row-reverse;
             background-color: white;
-            border-radius: 10px;
-            min-height: 600px;
+            border-radius: 5vmin;
+            // min-height: 600px;
             .left{
                 flex: 1;
                 background:linear-gradient(rgba(230, 230, 126, 0.5),rgba(160, 156, 156, 0.5)), url("https://images.pexels.com/photos/7441442/pexels-photo-7441442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") center;
                 background-size: cover;
-                padding: 50px;
+                padding: 0px 50px;
                 display: flex;
                 flex-direction: column;
                 gap: 25px;
                 color: rgb(34, 34, 14);
+                border-radius: 0 5vmin 5vmin 0;
                 h1{
                     font-size: 75px;
                     line-height: 100px;
@@ -48,9 +50,11 @@
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items:flex-start ;
+                
                 img{
                     height: 80px;
                     width: 200px;
+                    margin-top: 5px;
                 }
                 h1{
                     color: rgb(3, 3, 3);
@@ -58,7 +62,7 @@
                 form{
                     display: flex;
                     flex-direction: column;
-                    gap: 30px;
+                    gap: 10px;
                     input{
                         border: none;
                         border-bottom: 1px solid lightyellow;

@@ -6,10 +6,12 @@ align-items: center;
 justify-content: center;
 overflow: hidden;
     .card{
-        width: 70%;
+        height: 90%;
+        width:70% ;
         display: flex;
         background-color: white;
-        min-height: 600px;
+        // min-height: 600px;
+        border-radius: 5vmin;
         .left{
             flex: 1;
             background:linear-gradient(rgba(231, 231, 102, 0.5),rgba(192, 189, 189, 0.2)), url("https://i.pinimg.com/564x/a6/a7/7b/a6a77bd707899db369753731610373fe.jpg") center;
@@ -17,6 +19,7 @@ overflow: hidden;
             padding: 50px;
             display: flex;
             flex-direction: column;
+            border-radius: 5vmin 0 0 5vmin;
             
             color: rgb(34, 34, 14);
             h1{
@@ -30,7 +33,7 @@ overflow: hidden;
             span{
                 padding-bottom: 20px;
                 font-size: 14px;
-                margin-top: 350px;
+                margin-top: 300px;
             }
             button{
                 width: 50%;
