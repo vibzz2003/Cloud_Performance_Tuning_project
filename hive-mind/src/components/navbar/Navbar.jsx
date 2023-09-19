@@ -11,9 +11,12 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
+
 const Navbar = () => {
 
   const {toggle, darkMode} = useContext(DarkModeContext)
+  const {currentUser} = useContext(AuthContext)
 
   return (
     <div className="navbar">
@@ -34,12 +37,12 @@ const Navbar = () => {
         <EmailOutlinedIcon/>
         <NotificationsOutlinedIcon/>
       <div className="user">
-        <img src="https://media.licdn.com/dms/image/D4D35AQGUghBge0FG_Q/profile-framedphoto-shrink_400_400/0/1678209265252?e=1695290400&v=beta&t=0eYvNBJVHT83nfWyUJDqXt2tq6I2v0azkbDGDYNCCJk" alt="" />
-        <span>Vibhor Minocha</span>
+        <img src={currentUser.profilePic}/>
+        <span>{currentUser.name}</span>
       </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom"
 import "./login.scss"
 import img1 from "../../media/1.png"
+import { useContext } from "react"
+import { AuthContext } from "../../context/authContext"
 
 export const Login = () => {
+
+  const{login} = useContext(AuthContext);
+
+  const handleLogin = () =>{
+    login();
+  };
+
   return (
     <div className="login">
       <div className="card">
@@ -20,7 +29,7 @@ export const Login = () => {
           <form>
             <input type="text" placeholder="Username" />
             <input type="text" placeholder="Password" />
-            <button>Login</button>
+            <button onClick={handleLogin}>Login</button>
           </form>
         </div>
       </div>

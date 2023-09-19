@@ -1,8 +1,12 @@
 import "./home.scss"
-
-export const Home = () => {
+import Stories from "../../components/stories/Stories"
+import Posts from "../../components/posts/Posts"
+const Home = () => {
   return (
-    <div className="home" style={{height:"100vh"}}>Home</div>
+    <div className="home" >
+      <Stories/>
+      <Posts/>
+    </div>
   )
 }
 
