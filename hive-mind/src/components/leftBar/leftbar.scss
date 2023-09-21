@@ -8,6 +8,10 @@
     overflow: scroll;
     background-color: themed("bg");
     color: themed("textColor");
+
+    @include mobile{
+        display: none;
+    }
   
     .container{
         padding: 20px;
