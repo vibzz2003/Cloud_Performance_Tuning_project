@@ -70,7 +70,7 @@ const RightBar = () => {
           <span>Online Friends</span>
           <div className="user">
             <div className="userInfo">
-              <img src="https://media.licdn.com/dms/image/D5635AQHEWdz7DWEeGw/profile-framedphoto-shrink_800_800/0/1681317665129?e=1695236400&v=beta&t=2rn7GJIENmIRPvO2Ietv2j2xQ6KkYVBC0WeKKHepuBw" alt="" />
+              <img src="https://media.licdn.com/dms/image/D5635AQHEWdz7DWEeGw/profile-framedphoto-shrink_800_800/0/1681317665129?e=1698066000&v=beta&t=lTwltr94tMKpPQGwR3eEkAP8mtpg-d2JC_Oqz3RnEPQ" alt="" />
               <div className="online"/>
               <span>Ranya Kaushik</span>
             </div>
