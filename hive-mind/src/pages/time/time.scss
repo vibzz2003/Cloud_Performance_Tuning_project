@@ -1,0 +1,70 @@
+.time{
+    height: 100vh;
+    background-color: #019187;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    .card{
+        height: 90%;
+        width: 70%;
+        display: flex;
+        background-color: white;
+        border-radius: 5vmin;
+        .left{
+            flex: 1;
+            background: linear-gradient(rgba(231,231,102,0.5),rgba(192,189,189,0.2)),url(https://media.istockphoto.com/id/1288071194/photo/yellow-modern-office-wall-clock.jpg?s=612x612&w=0&k=20&c=FE6Km-5mLeJdVCBBPgjH4zq77SSw4X3DZuCtFJerth4=) center;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 5vmin 0 0 5vmin;
+
+            color:rgb( 34,34,14);
+            p{
+                text-align: center;
+                font-size:25px;
+            }
+            span{
+                padding-bottom: 20px;
+                font-size: 14px;
+                margin-top: 300px;
+            }
+        }
+        .right{
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 34px;
+            img{
+                height: 100px;
+                width: 250px;
+                float: right;
+                padding-left: 50px;
+            }
+            h1{
+                color: rgb(3, 3, 3);
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                input{
+                    border: none;
+                    border-bottom: 1px solid lightyellow;
+                    padding: 20px 10px;
+                }
+                button{
+                    width: 50%;
+                    padding: 10px;
+                    border: none;
+                    background-color: rgb(235, 238, 70);
+                    color: rgb(15, 15, 9);
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+}
