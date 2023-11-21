@@ -5,6 +5,6 @@ echo "Building app"
 npm run build
 
 echo "Deploying files to server..."
-scp -r build/* Vibhor@4.240.65.158:/var/www/4.240.65.158/ 
+scp -r build/* azureuser@20.244.36.231:/var/www/20.244.36.231/ 
 
 echo "Done!"
