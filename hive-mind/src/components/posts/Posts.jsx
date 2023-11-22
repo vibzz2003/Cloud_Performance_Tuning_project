@@ -7,6 +7,7 @@ import { AuthContext } from "../../context/authContext";
 
 const Posts = ({userId}) => {
   const {currentUser} = useContext(AuthContext)
+  console.log(currentUser);
   const { isLoading, error, data } = useQuery(["posts"], () =>
     makeRequest.get("/posts?userId="+userId,{
       headers:{

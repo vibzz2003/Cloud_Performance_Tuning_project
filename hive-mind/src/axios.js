@@ -1,7 +1,7 @@
 import axios from "axios"
-import {currentUser} from './context/authContext'
+
 
 export const makeRequest = axios.create({
-    baseURL: "http://localhost:8800/api",
+    baseURL: "http://98.70.51.202/api",
     withCredentials: true,
 })
