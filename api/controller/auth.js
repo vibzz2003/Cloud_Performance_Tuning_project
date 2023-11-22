@@ -45,12 +45,13 @@ export const login = (req,res)=>{
 
     const token = jwt.sign({id: data[0].id}, "secretkey",{expiresIn:req.body.time*60000});
 
-    const {password, ...others} = data[0];
+    data[0]["accessToken"] = token
 
-    console.log(jwt.verify(token,"secretkey"))
+    const {password, ...others} = data[0];
 
     res.cookie("accessToken", token,{
       httpOnly: true,
+      sameSite:"none"
     })
     .status(200)
     .json(others);

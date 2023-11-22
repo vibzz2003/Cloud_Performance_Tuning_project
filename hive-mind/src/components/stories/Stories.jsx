@@ -12,7 +12,11 @@ const Stories = () => {
     try {
       const formData = new FormData();
       formData.append("file", strPic);
-      const res = await makeRequest.post("/upload", formData);
+      const res = await makeRequest.post("/upload",formData,{
+        headers:{
+          Authorization:`Bearer ${currentUser.accessToken}`
+        }
+      });
       return res.data;
     } catch (err) {
       console.log(err);
@@ -27,7 +31,11 @@ const Stories = () => {
 
   const mutation = useMutation(
     (newStry) => {
-      makeRequest.post("/stories",newStry)
+      makeRequest.post("/stories",newStry,{
+        headers:{
+          Authorization:'Bearer ' + currentUser.accessToken
+        }
+      })
     }
   )
 

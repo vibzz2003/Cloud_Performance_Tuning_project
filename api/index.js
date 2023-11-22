@@ -15,12 +15,14 @@ import SearchRoutes from "./routes/search.js"
 //middlewares
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Headers","*");
   next();
 });
 app.use(express.json());
 app.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:3000",
+    credentials:true
   })
 );
 app.use(cookieParser());

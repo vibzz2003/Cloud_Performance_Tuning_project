@@ -5,12 +5,17 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import moment from "moment";
 
+
 const Comments = ({ postId }) => {
   const [desc, setDesc] = useState("");
   const { currentUser } = useContext(AuthContext);
 
   const { isLoading, error, data } = useQuery(["comments"], () =>
-    makeRequest.get("/comments?postId=" + postId).then((res) => {
+    makeRequest.get("/comments?postId=" + postId,{
+      headers:{
+        Authorization:'Bearer ' + currentUser.accessToken
+      }
+    }).then((res) => {
       return res.data;
     })
   );
@@ -19,7 +24,11 @@ const Comments = ({ postId }) => {
 
   const mutation = useMutation(
     (newComment) => {
-      return makeRequest.post("/comments", newComment);
+      return makeRequest.post("/comments", newComment,{
+        headers:{
+          Authorization:`Bearer ${currentUser.accessToken}`
+        }
+      });
     },
     {
       onSuccess: () => {

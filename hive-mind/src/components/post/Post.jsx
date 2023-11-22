@@ -18,9 +18,14 @@ const Post = ({ post }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
+  console.log(currentUser)
 
   const { isLoading, data } = useQuery(["likes", post.id], () =>
-    makeRequest.get("/likes?postId=" + post.id).then((res) => {
+    makeRequest.get("/likes?postId=" + post.id,{
+      headers:{
+        Authorization:'Bearer ' + currentUser.accessToken
+      }
+    }).then((res) => {
       return res.data;
     })
   );
@@ -30,7 +35,11 @@ const Post = ({ post }) => {
   const mutation = useMutation(
     (liked) => {
       if (liked) return makeRequest.delete("/likes?postId=" + post.id);
-      return makeRequest.post("/likes", { postId: post.id });
+      return makeRequest.post("/likes", { postId: post.id },{
+        headers:{
+          Authorization:`Bearer ${currentUser.accessToken}`
+        }
+      });
     },
     {
       onSuccess: () => {
@@ -41,7 +50,11 @@ const Post = ({ post }) => {
   );
   const deleteMutation = useMutation(
     (postId) => {
-      return makeRequest.delete("/posts/" + postId);
+      return makeRequest.delete("/posts/" + postId,{
+        headers:{
+          Authorization:`Bearer ${currentUser.accessToken}`
+        }
+      });
     },
     {
       onSuccess: () => {

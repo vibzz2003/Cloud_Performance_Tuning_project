@@ -30,7 +30,11 @@ const Navbar = () => {
   
 
   const handleSearch = () =>{
-    makeRequest.get("/search/"+search).then((res) => {
+    makeRequest.get("/search/"+search,{
+      headers:{
+        Authorization:'Bearer ' + currentUser.accessToken
+      }
+    }).then((res) => {
       console.log(res.data)
       return res.data;
     })

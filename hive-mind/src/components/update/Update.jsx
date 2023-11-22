@@ -3,8 +3,12 @@ import { makeRequest } from "../../axios";
 import "./update.scss";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
+
 
 const Update = ({ setOpenUpdate, user }) => {
+  const [currentUser] = useContext(AuthContext); 
   const [cover, setCover] = useState(null);
   const [profile, setProfile] = useState(null);
   const [texts, setTexts] = useState({
@@ -20,7 +24,11 @@ const Update = ({ setOpenUpdate, user }) => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await makeRequest.post("/upload", formData);
+      const res = await makeRequest.post("/upload", formData,{
+        headers:{
+          Authorization:`Bearer ${currentUser.accessToken}`
+        }
+      });
       return res.data;
     } catch (err) {
       console.log(err);
@@ -35,7 +43,11 @@ const Update = ({ setOpenUpdate, user }) => {
 
   const mutation = useMutation(
     (user) => {
-      return makeRequest.put("/users", user);
+      return makeRequest.put("/users", user,{
+        headers:{
+          Authorization:`Bearer ${currentUser.accessToken}`
+        }
+      });
     },
     {
       onSuccess: () => {

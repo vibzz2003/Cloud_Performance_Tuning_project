@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import moment from "moment";
 
 export const getStories = (req, res) => {
+  console(req.headers)
   const token = req.cookies.accessToken;
   if (!token) return res.status(401).json("Not logged in!");
 
@@ -22,7 +23,8 @@ export const getStories = (req, res) => {
 };
 
 export const addStory = (req, res) => {
-  const token = req.cookies.accessToken;
+  const token = req.headers.authorization.split(" ")[1];
+
   if (!token) return res.status(401).json("Not logged in!");
 
   jwt.verify(token, "secretkey", (err, userInfo) => {
@@ -43,7 +45,7 @@ export const addStory = (req, res) => {
 };
 
 export const deleteStory = (req, res) => {
-  const token = req.cookies.accessToken;
+  const token = req.headers.authorization.split(" ")[1];
   if (!token) return res.status(401).json("Not logged in!");
 
   jwt.verify(token, "secretkey", (err, userInfo) => {

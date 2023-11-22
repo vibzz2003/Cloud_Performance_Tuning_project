@@ -6,7 +6,9 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
+
 const Share = () => {
+  const { currentUser } = useContext(AuthContext);
   const [file, setFile] = useState(null);
   const [desc, setDesc] = useState("");
 
@@ -14,20 +16,28 @@ const Share = () => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await makeRequest.post("/upload", formData);
+      const res = await makeRequest.post("/upload", formData,{
+        headers:{
+          Authorization:'Bearer ' + currentUser.accessToken
+        }
+      });
       return res.data;
     } catch (err) {
       console.log(err);
     }
   };
 
-  const { currentUser } = useContext(AuthContext);
+ 
 
   const queryClient = useQueryClient();
 
   const mutation = useMutation(
     (newPost) => {
-      return makeRequest.post("/posts", newPost);
+      return makeRequest.post("/posts", newPost,{
+        headers:{
+          Authorization:'Bearer ' + currentUser.accessToken
+        }
+      });
     },
     {
       onSuccess: () => {
