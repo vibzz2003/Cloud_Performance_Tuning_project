@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://3.90.248.48",
+    origin: "http://50.17.30.164",
     credentials:true
   })
 );
