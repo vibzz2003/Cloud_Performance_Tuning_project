@@ -21,16 +21,17 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://3.90.248.48",
     credentials:true
   })
 );
 app.use(cookieParser());
 
+app.use("/uploads",express.static('./Uploads'))
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../hive-mind/public/upload");
+    cb(null, "./Uploads");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
